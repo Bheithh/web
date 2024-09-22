@@ -1,0 +1,20 @@
+const frasesFrustrado = [
+  
+];
+const frasesSorprendido = [
+   
+];
+
+
+
+
+
+
+
+
+            
+
+           
+
+
+           

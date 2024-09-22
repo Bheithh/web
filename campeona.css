@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #d4679e; /* Fondo rosa en toda la página */
+    color: #333;
+    overflow-x: hidden;
+}
+
+nav {
+    background-color: #ff80bf;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.menu-icon {
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+}
+
+#menu {
+    list-style: none;
+}
+
+#menu li {
+    margin: 0 15px;
+}
+
+#menu li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+#menu li a:hover {
+    color: #fff4f9;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px; /* Espacio para el menú */
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid #ff4d94;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.1);
+}
+
+.message {
+    padding: 20px;
+    text-align: center;
+    margin: 40px auto;
+    max-width: 600px;
+    animation: fadeIn 0.8s; /* Animación al aparecer */
+    background-color: #d4679e; /* Asegura que el fondo de la sección del mensaje sea rosa */
+}
+
+.message h2 {
+    font-size: 2.5rem;
+    color: #dbd6d8;
+    margin-bottom: 10px;
+}
+
+.message p {
+    font-size: 1.2rem;
+    color: #660033;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #ff4d94;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ff80bf; /* Cambio de color al pasar el mouse */
+}
+
+footer {
+    background-color: #ff80bf;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .message h2 {
+        font-size: 2rem; /* Tamaño del título más pequeño */
+    }
+
+    .message p {
+        font-size: 1rem; /* Tamaño del texto más pequeño */
+    }
+
+    .btn {
+        padding: 8px 16px; /* Ajustar el tamaño del botón */
+        font-size: 1em; /* Ajustar el tamaño del texto en el botón */
+    }
+}
+
+@media (max-width: 468px) {
+    nav {
+        flex-direction: column; /* Cambiar a columna en pantallas muy pequeñas */
+        align-items: flex-start; /* Alinear a la izquierda */
+    }
+
+    .menu-icon {
+        margin-bottom: 10px; /* Espacio debajo del ícono del menú */
+    }
+
+    .image-container {
+        margin-top: 100px; /* Más espacio para el menú */
+    }
+}
+

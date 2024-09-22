@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Léeme</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="leer.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #d4679e; /* Fondo rosa en toda la página */
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        nav {
+            background-color: #ff80bf;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .menu-icon {
+            font-size: 2rem;
+            cursor: pointer;
+            color: white;
+        }
+
+        #menu {
+            list-style: none;
+        }
+
+        #menu li {
+            margin: 0 15px;
+        }
+
+        #menu li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        #menu li a:hover {
+            color: #fff4f9;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 60px; /* Espacio para el menú */
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid #ff4d94;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.1);
+        }
+
+        .message {
+            padding: 20px;
+            text-align: center;
+            margin: 40px auto;
+            max-width: 600px;
+            animation: fadeIn 0.8s; /* Animación al aparecer */
+            background-color: #d4679e; /* Asegura que el fondo de la sección del mensaje sea rosa */
+        }
+
+        .message h2 {
+            font-size: 2.5rem;
+            color: #dbd6d8;
+            margin-bottom: 10px;
+        }
+
+        .message p {
+            font-size: 1.2rem;
+            color: #660033;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #ff4d94;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #ff80bf; /* Cambio de color al pasar el mouse */
+        }
+
+        .mood-section {
+            text-align: center;
+            margin: 40px auto;
+            max-width: 600px;
+            background-color: #ffe6f2; /* Fondo claro para la sección */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .mood-section h2 {
+            font-size: 2.5rem;
+            color: #dbd6d8;
+            margin-bottom: 20px;
+        }
+
+        .mood-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap; /* Para ser responsivo */
+            gap: 10px;
+        }
+
+        .mood-btn {
+            padding: 10px 20px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .mood-btn:hover {
+            transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+        }
+
+        .mood-btn.feliz {
+            background-color: #ff3300; /* Amarillo para feliz */
+        }
+
+        .mood-btn.triste {
+            background-color: #d35c0c; /* Azul para triste */
+        }
+
+        .mood-btn.motivado {
+            background-color:  #ffcc00; /* Rojo para motivado */
+        }
+
+        .mood-btn.sorprendido {
+            background-color: #00cc99; /* Verde para sorprendido */
+        }
+
+        .mood-btn.cansado {
+            background-color: #0066cc; /* Morado para cansado */
+        }
+
+        .mood-btn.ansioso {
+            background-color: #663399; /* Naranja para ansioso */
+        }
+
+        .mood-btn.frustrado {
+            background-color: #ff80bf; /* Naranja para frustrado */
+        }
+
+        .mood-message {
+            font-size: 1.2rem;
+            color: #660033;
+        }
+
+        footer {
+            background-color: #ff80bf;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .mood-btn {
+                font-size: 1rem;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <!-- Aquí va tu menú si decides mantenerlo -->
+    </nav>
+
+    <div class="image-container">
+        <img src="IMG-20240921-WA0136(1).jpg" alt="Mía" class="profile-image" />
+    </div>
+
+    <section class="message">
+        <h2>Recuerda...</h2>
+        <p>No importa la distancia, el tiempo o las circunstancias, siempre estaré presente de alguna manera.</p>
+    </section>
+
+    <section class="mood-section">
+        <h2>Si sientes algo, solo pulsa sobre tu emoción</h2>
+        <div class="mood-container">
+            <button class="mood-btn feliz" onclick="showMood('feliz')">Feliz</button>
+            <button class="mood-btn triste" onclick="showMood('triste')">Triste</button>
+            <button class="mood-btn motivado" onclick="showMood('motivado')">Motivada</button>
+            <button class="mood-btn sorprendido" onclick="showMood('sorprendida')">Sorprendida</button>
+            <button class="mood-btn cansado" onclick="showMood('cansado')">Cansada</button>
+            <button class="mood-btn ansioso" onclick="showMood('ansioso')">Ansiosa</button>
+            <button class="mood-btn frustrado" onclick="showMood('frustrada')">Frustrada</button>
+        </div>
+        <div class="mood-message" id="mood-message">
+            <p>Espero que estas palabras te ayuden cuando lo necesites</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Campeona Departamental de Matemática</p>
+    </footer>
+
+    <script>
+        const frasesFeliz = [
+"No sabes cuánto me alegra verte sonreír.",
+"Tu felicidad es como un rayo de sol, ilumina todo a su paso.",
+"Verte feliz es todo lo que necesito para alegrar mi día.",
+"Que tu felicidad se multiplique y nunca se acabe.",
+"La alegría está en el corazón que ama.",
+"El secreto de la felicidad es la libertad, y el secreto de la libertad, el valor.",
+"La verdadera felicidad no proviene de lo que tenemos, sino de lo que somos.",
+"Cada día puede no ser bueno, pero siempre hay algo bueno en cada día.",
+"Recuerda que la felicidad se encuentra en las cosas simples de la vida.",
+"La verdadera felicidad consiste en disfrutar del presente sin depender ansiosamente del futuro."
+        ];
+
+        const frasesTriste = [
+            "Recuerda que está bien estar triste a veces. Siempre estoy aquí para ti",
+            "Incluso en los momentos más oscuros, el sol volverá a salir.",
+            "La tristeza es un signo de un corazón sensible.",
+            "No hay tristeza que el tiempo no cure.",
+            "La tristeza es un lugar en el que no queremos quedarnos, pero a veces debemos visitarlo.",
+            "La tristeza puede ser la costura que une las piezas de nuestro ser.",
+            "La tristeza es un capítulo en la historia de tu vida, no el final.",
+            "Las nubes de la tristeza siempre se disipan; lo importante es mantener la esperanza.",
+            "Las noches más oscuras son las que permiten ver las estrellas.",
+            "No te olvides que después de la tormenta, viene la calma."
+        ];
+
+        const frasesMotivado = [
+            "La motivación es lo que te hace empezar. El hábito es lo que te mantiene en marcha.",
+            "Las metas son sueños con fechas de entrega.",
+            "Nunca te rindas, lo mejor está por venir.",
+            "Tu única limitación es tu mente.",
+            "No cuentes los días, haz que los días cuenten.",
+            "El éxito es la suma de pequeños esfuerzos repetidos día tras día.",
+            "La disciplina es el puente entre tus metas y tus logros.",
+            "Cada día es una nueva oportunidad para mejorar.",
+            "No importa lo lento que vayas, siempre y cuando no te detengas.",
+            "La única forma de hacer un gran trabajo es amar lo que haces."
+        ];
+
+        const frasesSorprendido = [
+        "Los momentos más felices son aquellos que no podemos prever.",
+    "Nunca dejes de asombrarte, porque la vida siempre tiene algo nuevo que ofrecer.",
+    "El asombro es el principio de la sabiduría.",
+    "Nunca dejes que el miedo a lo inesperado te detenga.",
+    "La vida es una serie de sorpresas que nos invitan a descubrir nuestro potencial",
+    "Un poco de sorpresa hace que cada día sea especial.",
+    "Las sorpresas pueden ser pequeñas, pero sus efectos son enormes.",
+    "La vida es una sorpresa constante, lo que importa es cómo la recibimos.",
+    "Cada día es una nueva oportunidad para descubrir algo increíble.",
+    "La verdadera sorpresa es vivir en el presente."
+        ];
+
+        const frasesCansado = [
+        "Es un signo de sabiduría el saber cuándo descansar.",
+            "La vida es como una bicicleta, para mantener el equilibrio, debes seguir adelante.",
+            "Recuerda cuidar de ti misma, tu bienestar es lo más importante.",
+            "El descanso no es una pérdida de tiempo, es una inversión en tu productividad.",
+            "El descanso no es un lujo, es una necesidad.",
+            "En tu momento de mayor cansancio recuerda que ahí estaré",
+            "Tomar un descanso puede ser la clave para volver más fuerte.",
+            "El cansancio es solo un recordatorio de que has estado trabajando duro.",
+            "Recarga tus energías y vuelve a brillar.",
+            "No te rindas, el cansancio es solo una señal de que estás más cerca de tu meta."
+        ];
+
+        const frasesAnsioso = [
+        "La calma es la verdadera esencia de la vida.",
+            "Recuerda respirar, cada momento es una nueva oportunidad.",
+            "La ansiedad es el miedo a lo que puede suceder, no a lo que está sucediendo.",
+            "La vida es 10% lo que te sucede y 90% cómo reaccionas a ello.",
+            "Tu mente es un jardín, tus pensamientos son las semillas. Puedes cultivar flores o puedes cultivar malas hierbas.",
+            "Cada día es un nuevo comienzo, respira y comienza de nuevo.",
+            "La vida está llena de posibilidades, no dejes que el miedo te detenga.",
+            "Tus pensamientos no son hechos, elige lo que crees.",
+            "Recuerda que siempre hay esperanza, incluso en los momentos difíciles.",
+            "La ansiedad es un ladrón de sueños, así que no le des poder."
+        ];
+
+        const frasesFrustrado = [
+        "A veces, la frustración es solo una señal de que estás cerca del éxito.",
+    "No te dejes vencer por la frustración, cada paso cuenta.",
+    "Recuerda que cada error es una oportunidad de aprendizaje.",
+    "No lograr algo frustra pero vendrán mejores cosas",
+    "No hay éxito sin frustración, es parte del proceso.",
+    "Los obstáculos son solo oportunidades disfrazadas.",
+    "Cada desafío es una nueva lección que aprender.",
+    "La frustración no es el final, es solo una pausa antes de la victoria.",
+    "La perseverancia es la clave para superar la frustración.",
+    "No te rindas, la victoria está más cerca de lo que crees."
+        ];
+
+        function showMood(mood) {
+            let moodMessage = document.getElementById('mood-message');
+            switch (mood) {
+                case 'feliz':
+                    moodMessage.innerHTML = frasesFeliz[Math.floor(Math.random() * frasesFeliz.length)];
+                    break;
+                case 'triste':
+                    moodMessage.innerHTML = frasesTriste[Math.floor(Math.random() * frasesTriste.length)];
+                    break;
+                case 'motivado':
+                    moodMessage.innerHTML = frasesMotivado[Math.floor(Math.random() * frasesMotivado.length)];
+                    break;
+                case 'sorprendida':
+                    moodMessage.innerHTML = frasesSorprendido[Math.floor(Math.random() * frasesSorprendido.length)];
+                    break;
+                case 'cansado':
+                    moodMessage.innerHTML = frasesCansado[Math.floor(Math.random() * frasesCansado.length)];
+                    break;
+                case 'ansioso':
+                    moodMessage.innerHTML = frasesAnsioso[Math.floor(Math.random() * frasesAnsioso.length)];
+                    break;
+                case 'frustrada':
+                    moodMessage.innerHTML = frasesFrustrado[Math.floor(Math.random() * frasesFrustrado.length)];
+                    break;
+                default:
+                    moodMessage.innerHTML = "Espero que estas palabras te ayuden cuando lo necesites";
+            }
+        }
+    </script>
+</body>
+</html>
+
+
